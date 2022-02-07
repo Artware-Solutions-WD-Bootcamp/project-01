@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- META SECTION -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- LINKS SECTION -->
+    <link rel="stylesheet" href="css/main.css" />
+
+    <!-- OTHER INFO -->
+    <title>"The Circle" Job Interview</title>
+  </head>
+  <body>
+    <div class="container">
+      <!-- SPLASH SCREEN -->
+      <div class="screen screen-splash" id="screen-splash">
+        <div class="title">
+          <h1>"The Circle"</h1>
+          <span>Tech Company Job Interview</span>
+        </div>
+        <div class="job-description cadetblue left strong-translucent">
+          <p>
+            Una empresa informática necesita contratar programadores de HTML,
+            CSS o JS.
+          </p>
+          <p>
+            El "enemigo" es el CEO de la empresa, que es bastante exigente y
+            quiere un mínimo de 60% de aciertos.
+          </p>
+          <p>
+            El "bonus" es el sueldo que irá incrementando si el candidato
+            demuestra un gran conocimiento del lenguaje contestando antes de que
+            se agote el tiempo
+          </p>
+        </div>
+        <div class="rules cadetblue right strong-translucent">
+          <h2>Reglas de la entrevista</h2>
+          <ul>
+            <li>
+              El candidato tiene que pasar las dos fases de la entrevista
+              obteniendo una cantidad de aciertos superior al 50% de las
+              preguntas.
+            </li>
+            <li>
+              Las respuestas irán descendiendo desde arriba hacia abajo, y para
+              capturar la respuesta correcta deberá mover las manos utilizando
+              las teclas de dirección izquierda y derecha.
+            </li>
+            <li>
+              Para responder mas rápidamente, tendrá que usar las teclas arriba
+              y abajo.
+            </li>
+          </ul>
+        </div>
+        <div class="department cadetblue right strong-translucent">
+          <h2>Seleccione el departamento:</h2>
+          <button class="btn" id="btn-js">Javascript</button>
+          <button class="btn" id="btn-html">HTML</button>
+          <button class="btn" id="btn-css">CSS</button>
+        </div>
+        <div class="level cadetblue right strong-translucent">
+          <h2>Seleccione el nivel:</h2>
+          <button class="btn" id="btn-junior">Junior</button>
+          <button class="btn" id="btn-middle">Middle</button>
+          <button class="btn" id="btn-senior">Senior</button>
+        </div>
+      </div>
+
+      <!-- GAME SCREEN -->
+      <div class="screen screen-canvas hidden" id="screen-canvas">
+        <div class="question light-translucent">
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            Reprehenderit odio, hic eius dolor cupiditate dolorum
+          </p>
+        </div>
+        <div class="answer answer1 light-translucent">
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+          </p>
+        </div>
+        <div class="answer answer2 light-translucent">
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+          </p>
+        </div>
+        <div class="answer answer3 light-translucent">
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+          </p>
+        </div>
+        <div class="answer answer4 light-translucent">
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+          </p>
+        </div>
+        <div class="canvas">
+          <canvas id="canvas" height="900px" width="600px"></canvas>
+        </div>
+      </div>
+
+      <!-- GAME OVER SCREEN-->
+      <div class="screen screen-gameover hidden" id="screen-gameover">
+        <button class="btn" id="btn-restart">Mejorar mi sueldo!</button>
+      </div>
+    </div>
+
+    <!-- SCRIPTS SECTION -->
+    <script src="js/main.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/hands.js"></script>
+    <script src="js/questions.js"></script>
+    <script src="js/answers.js"></script>
+  </body>
+</html>
