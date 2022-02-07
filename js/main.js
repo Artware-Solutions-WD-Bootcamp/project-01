@@ -44,14 +44,31 @@ let answers = 0;
 //    STATE MANAGEMENT FUNCTIONS
 // =============================================================================
 
+// function to set up the game recursion
+const gameLoop = () => {
+  gameLoopControlVar++;
+
+  // testing code
+  if (gameLoopControlVar <= 5) {
+    requestAnimationFrame(gameLoop);
+    console.log("gameLoop() recursion testing!");
+  }
+  /* production code
+  if (gameLoopControlVar <= canvas.height-(handsSizeH+(answerSizeH*2))) {
+    requestAnimationFrame(gameLoop);
+  }
+  */
+};
+
 // function to set the department for the questions to ask
 const setDepartment = (departmentParam) => {
   department = departmentParam.toLowerCase();
   return department;
 };
 
+// function to set the level for the questions to ask
 const setLevel = (levelParam) => {
-  level = levelParam;
+  level = (levelParam[0].toUpperCase() + levelParam.slice(1).toLowerCase());
   return level;
 };
 
@@ -60,7 +77,8 @@ const startGame = () => {
   // verify if the candidate selected the
   if (department === "js" || department === "html" || department === "css") {
     swapScreen(screenSplashDOM, screenCanvasDOM);
-    console.log(department + level);
+
+    console.log(`startGame() selected department and level are: ${department + level}`);
 
     // iniciar el juego
     // newGame = new Game()
@@ -97,52 +115,40 @@ const swapScreen = (elementToHide, elementToShow) => {
   }
 };
 
-const gameLoop = () => {
-  gameLoopControlVar++;
-
-  // testing code
-  if (gameLoopControlVar <= 5) {
-    requestAnimationFrame(gameLoop);
-    console.log("Testing recursion!");
-  }
-  /* production code
-  if (gameLoopControlVar <= canvas.height-(handsSizeH+(answerSizeH*2))) {
-    requestAnimationFrame(gameLoop);
-  }
-  */
-};
-
 // =============================================================================
 //    ADD EVENT LISTENERS
 // =============================================================================
 
 btnDepartmentJsDOM.addEventListener("click", () => {
   setDepartment("JS");
-  // console.log(department)
+  // console.log(`setDepartment() selected department: "${department}"`)
 });
 
 btnDepartmentHtmlDOM.addEventListener("click", () => {
   setDepartment("HTML");
-  // console.log(department)
+  // console.log(`setDepartment() selected department: "${department}"`)
 });
 
 btnDepartmentCssDOM.addEventListener("click", () => {
   setDepartment("CSS");
-  // console.log(department)
+  // console.log(`setDepartment() selected department: "${department}"`)
 });
 
 btnLevelJuniorDOM.addEventListener("click", () => {
-  level = "Junior";
+  setLevel("JUNIOR");
+  // console.log(`setLevel() selected level is: "${level}"`)
   startGame();
 });
 
 btnLevelMiddleDOM.addEventListener("click", () => {
-  level = "Middle";
+  setLevel("middle");
+  // console.log(`setLevel() selected level is: "${level}"`)
   startGame();
 });
 
 btnLevelSeniorDOM.addEventListener("click", () => {
-  level = "Senior";
+  setLevel("seNIor");
+  // console.log(`setLevel() selected level is: "${level}"`)
   startGame();
 });
 
