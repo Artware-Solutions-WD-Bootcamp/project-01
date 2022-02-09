@@ -1,49 +1,59 @@
 class Hands {
   constructor() {
-    this.handsX = canvas.width / 2 - 50;
-    this.handsY = canvas.height - 100;
+    // =========================================================================
+    //    CLASS Hands PROPERTIES
+    // =========================================================================
+
+    this.x = canvas.width / 2 - 50;
+    this.y = canvas.height - 100;
     this.width = 100;
     this.height = 100;
     this.img = new Image();
-    this.img.src = "img/hands.png";
+    this.img.src = "./img/hands.png";
     //this.gravityNormalSpeed = 1;
     //this.gravitySpeedMultiplier = 10;
     //this.gravitySpeed = this.gravityNormalSpeed * this.gravitySpeedMultiplier;
   }
 
+  // ===========================================================================
+  //    CLASS Hands METHODS
+  // ===========================================================================
+
   // display the hands
   drawHands = () => {
-    ctx.drawImage(this.img, this.handsX, this.handsY, this.width, this.height);
+    ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
   };
 
   // move the hands
   moveHands = (keyName) => {
     switch (keyName) {
       case "ArrowUp":
-        this.handsY = this.handsY - 20;
-        console.log(`This handsY: ${this.handsY}`);
+        this.y = this.y - 20;
+        // console.log(`This y: ${this.y}`);
         // console.log(`pulsado la tecla ${keyName}`);
         break;
-        
-        case "ArrowDown":
-          this.handsY = this.handsY + 20;
-          console.log(`This handsY: ${this.handsY}`);
-          // console.log(`Ha pulsado la tecla ${keyName}`);
-        break;
-        
-        case "ArrowLeft":
-        this.handsX = this.handsX - 20;
-        console.log(`This handsX: ${this.handsX}`);
+
+      case "ArrowDown":
+        this.y = this.y + 20;
+        // console.log(`This y: ${this.y}`);
         // console.log(`Ha pulsado la tecla ${keyName}`);
         break;
-        
-        case "ArrowRight":
-        this.handsX = this.handsX + 20;
-        console.log(`This handsX: ${this.handsX}`);
+
+      case "ArrowLeft":
+        this.x = this.x - 20;
+        // console.log(`This x: ${this.x}`);
+        // console.log(`Ha pulsado la tecla ${keyName}`);
+        break;
+
+      case "ArrowRight":
+        this.x = this.x + 20;
+        // console.log(`This x: ${this.x}`);
         // console.log(`Ha pulsado la tecla ${keyName}`);
         break;
     }
-
-    // alert('keydown event\n\n' + 'key: ' + keyName);
   };
+
+  // ===========================================================================
+  //    CLASS Game ADD EVENT LISTENERS
+  // ===========================================================================
 }

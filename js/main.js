@@ -19,9 +19,6 @@ canvas.style.opacity = "60%";
 canvas.width = 600;
 canvas.height = 900;
 
-// control variables
-let gameLoopControlVar = 0;
-
 // game variables
 let newGame;
 let isGameOver = false;
@@ -35,10 +32,14 @@ let screenGameOverDOM = document.querySelector("#screen-gameover");
 let screenSplashDOM = document.querySelector("#screen-splash");
 
 // department, level, questions and answers variables
-let department;
-let level;
-let questionsAnswers;
-let answers = 0;
+let department = "";
+let level = "";
+let searchQuestionsFilter = "";
+let gameQuestionSetObjArr;
+let gameQuestionSetIndex = 1;
+let correctRoundAnswer = 0;
+let answersCounter = 0;
+//let answersArray = []; Bonus to implement
 
 // =============================================================================
 //    STATE MANAGEMENT FUNCTIONS
@@ -52,8 +53,41 @@ const setDepartment = (departmentParam) => {
 
 // function to set the level for the questions to ask
 const setLevel = (levelParam) => {
-  level = (levelParam[0].toUpperCase() + levelParam.slice(1).toLowerCase());
+  level = levelParam[0].toUpperCase() + levelParam.slice(1).toLowerCase();
   return level;
+};
+
+const getQuestionSet = (department, level) => {
+  searchQuestionsFilter = department + level;
+  // console.log(`getQuestionSetFilter(): "${searchQuestionsFilter}"`)
+
+  let newQuestions = new Questions();
+  let gameQuestionSetObjArr = newQuestions.setQuestionSet(
+    searchQuestionsFilter
+  );
+
+  // console.log(`getQuestionSet() gameQuestionSetObjArr: ${gameQuestionSetObjArr[0].question}`);
+  return gameQuestionSetObjArr;
+};
+
+const fillQuestionsAnswers = (gameQuestionSetObjArr, gameQuestionSetIndex) => {
+  let questionDOM = document.querySelector("#question");
+  questionDOM.innerText = gameQuestionSetObjArr[gameQuestionSetIndex].question;
+
+  let answer1DOM = document.querySelector("#answer1");
+  answer1DOM.innerText = gameQuestionSetObjArr[gameQuestionSetIndex].answer[0];
+
+  let answer2DOM = document.querySelector("#answer2");
+  answer2DOM.innerText = gameQuestionSetObjArr[gameQuestionSetIndex].answer[1];
+
+  let answer3DOM = document.querySelector("#answer3");
+  answer3DOM.innerText = gameQuestionSetObjArr[gameQuestionSetIndex].answer[2];
+
+  let answer4DOM = document.querySelector("#answer4");
+  answer4DOM.innerText = gameQuestionSetObjArr[gameQuestionSetIndex].answer[3];
+
+  correctRoundAnswer = gameQuestionSetObjArr[gameQuestionSetIndex].solution;
+  return correctRoundAnswer
 };
 
 // function to start game
@@ -64,12 +98,17 @@ const startGame = () => {
     // console.log(`startGame() selected department and level are: ${department + level}`);
 
     // start new game
-    newGame = new Game()
+    newGame = new Game();
     newGame.gameLoop();
-    
   } else {
     alert("To apply for a job, you need to decide a department first!");
   }
+
+  // obtain the questions and answers objects array to populate game screen
+  getQuestionSet(department, level);
+  // console.log(getQuestionSet);
+
+  fillQuestionsAnswers(gameQuestionSetObjArr, gameQuestionSetIndex);
 };
 
 // function to swap the game screens by adding or removing the "hidden" class
@@ -85,16 +124,18 @@ const swapScreen = (elementToHide, elementToShow) => {
 
     // set format
     elementToShow.classList.replace("screen-canvas", "screen-canvas-level-1");
-  } else if (elementToHide === elementToShow){
-    if (isGameOver === false){
-      elementToShow.classList.replace("screen-canvas-level-1", "screen-canvas-level-2");
+  } else if (elementToHide === elementToShow) {
+    if (isGameOver === false) {
+      elementToShow.classList.replace(
+        "screen-canvas-level-1",
+        "screen-canvas-level-2"
+      );
     } else {
       //elementToShow.classList.replace("screen-canvas-level-1", "screen-canvas-level-2");
     }
   } else if (elementToHide === screenCanvasDOM) {
     // if elementToHide is screenCanvasDOM and candidate finished level 1
     // (has more than 60% correct answers)
-
     // - switch screen-canvas-level-1 to screen-canvas-level-2
     if (elementToShow.classList.contains("screen-canvas-level-1")) {
       elementToShow.classList.replace(
@@ -110,8 +151,6 @@ const swapScreen = (elementToHide, elementToShow) => {
         "screen-canvas-level-2"
       );
     }
-
-
   }
 };
 
