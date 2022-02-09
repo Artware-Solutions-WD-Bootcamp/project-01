@@ -1,25 +1,49 @@
 class Hands {
   constructor() {
-    // hands properties
-    this.x = canvasDOM.width / 2;
-    this.y = canvasDOM.height / 2;
-    this.width = 50;
-    this.height = 50;
+    this.handsX = canvas.width / 2 - 50;
+    this.handsY = canvas.height - 100;
+    this.width = 100;
+    this.height = 100;
     this.img = new Image();
-    this.img.src = "./images/hands.png";
-    this.gravitySpeed = 2;
-    this.jumpSpeedMultiplier = 10;
-    this.jumpSpeed = this.gravitySpeed * this.jumpSpeedMultiplier;
+    this.img.src = "img/hands.png";
+    //this.gravityNormalSpeed = 1;
+    //this.gravitySpeedMultiplier = 10;
+    //this.gravitySpeed = this.gravityNormalSpeed * this.gravitySpeedMultiplier;
   }
 
-    // we need to see the hands
-    drawHands = () => {
-      ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
-    };
-  
-  
+  // display the hands
+  drawHands = () => {
+    ctx.drawImage(this.img, this.handsX, this.handsY, this.width, this.height);
+  };
 
+  // move the hands
+  moveHands = (keyName) => {
+    switch (keyName) {
+      case "ArrowUp":
+        this.handsY = this.handsY - 20;
+        console.log(`This handsY: ${this.handsY}`);
+        // console.log(`pulsado la tecla ${keyName}`);
+        break;
+        
+        case "ArrowDown":
+          this.handsY = this.handsY + 20;
+          console.log(`This handsY: ${this.handsY}`);
+          // console.log(`Ha pulsado la tecla ${keyName}`);
+        break;
+        
+        case "ArrowLeft":
+        this.handsX = this.handsX - 20;
+        console.log(`This handsX: ${this.handsX}`);
+        // console.log(`Ha pulsado la tecla ${keyName}`);
+        break;
+        
+        case "ArrowRight":
+        this.handsX = this.handsX + 20;
+        console.log(`This handsX: ${this.handsX}`);
+        // console.log(`Ha pulsado la tecla ${keyName}`);
+        break;
+    }
 
-
-
+    // alert('keydown event\n\n' + 'key: ' + keyName);
+  };
 }

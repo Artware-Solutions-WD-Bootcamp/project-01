@@ -16,18 +16,18 @@ let canvas = document.querySelector("#canvas");
 let ctx = canvas.getContext("2d");
 canvas.style.backgroundColor = "gray";
 canvas.style.opacity = "60%";
+canvas.width = 600;
+canvas.height = 900;
 
 // control variables
 let gameLoopControlVar = 0;
 
 // game variables
 let newGame;
+let isGameOver = false;
 
 // objects variables
-let answerPositionx = 50;
-let answerPositionY = 50;
-let handsSizeH = 100;
-let handsSizeW = 100;
+let answerSrcParam = 0;
 
 // screens variables
 let screenCanvasDOM = document.querySelector("#screen-canvas");
@@ -43,22 +43,6 @@ let answers = 0;
 // =============================================================================
 //    STATE MANAGEMENT FUNCTIONS
 // =============================================================================
-
-// function to set up the game recursion
-const gameLoop = () => {
-  gameLoopControlVar++;
-
-  // testing code
-  if (gameLoopControlVar <= 5) {
-    requestAnimationFrame(gameLoop);
-    console.log("gameLoop() recursion testing!");
-  }
-  /* production code
-  if (gameLoopControlVar <= canvas.height-(handsSizeH+(answerSizeH*2))) {
-    requestAnimationFrame(gameLoop);
-  }
-  */
-};
 
 // function to set the department for the questions to ask
 const setDepartment = (departmentParam) => {
@@ -77,12 +61,12 @@ const startGame = () => {
   // verify if the candidate selected the
   if (department === "js" || department === "html" || department === "css") {
     swapScreen(screenSplashDOM, screenCanvasDOM);
+    // console.log(`startGame() selected department and level are: ${department + level}`);
 
-    console.log(`startGame() selected department and level are: ${department + level}`);
-
-    // iniciar el juego
-    // newGame = new Game()
-    gameLoop();
+    // start new game
+    newGame = new Game()
+    newGame.gameLoop();
+    
   } else {
     alert("To apply for a job, you need to decide a department first!");
   }
@@ -101,6 +85,12 @@ const swapScreen = (elementToHide, elementToShow) => {
 
     // set format
     elementToShow.classList.replace("screen-canvas", "screen-canvas-level-1");
+  } else if (elementToHide === elementToShow){
+    if (isGameOver === false){
+      elementToShow.classList.replace("screen-canvas-level-1", "screen-canvas-level-2");
+    } else {
+      //elementToShow.classList.replace("screen-canvas-level-1", "screen-canvas-level-2");
+    }
   } else if (elementToHide === screenCanvasDOM) {
     // if elementToHide is screenCanvasDOM and candidate finished level 1
     // (has more than 60% correct answers)
@@ -112,6 +102,16 @@ const swapScreen = (elementToHide, elementToShow) => {
         "screen-canvas-level-2"
       );
     }
+
+    // - switch screen-canvas-level-1 to screen-gameover if candidate didn't passed
+    if (elementToShow.classList.contains("screen-canvas-level-1")) {
+      elementToShow.classList.replace(
+        "screen-canvas-level-1",
+        "screen-canvas-level-2"
+      );
+    }
+
+
   }
 };
 

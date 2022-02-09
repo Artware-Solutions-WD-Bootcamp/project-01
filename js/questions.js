@@ -1,3 +1,39 @@
+class questionSet {
+  constructor(questionSetParam) {
+    // questionSet properties
+    let questionSet = [];
+    switch (questionSetParam) {
+      case cssJunior:
+        questionSet = this.cssJunior;
+        break;
+      case cssMiddle:
+        questionSet = this.cssMiddle;
+        break;
+      case cssSenior:
+        questionSet = this.cssSenior;
+        break;
+      case htmlJunior:
+        questionSet = this.htmlJunior;
+        break;
+      case htmlMiddle:
+        questionSet = this.htmlMiddle;
+        break;
+      case htmlSenior:
+        questionSet = this.htmlSenior;
+        break;
+      case jsJunior:
+        questionSet = this.jsJunior;
+        break;
+      case jsMiddle:
+        questionSet = this.jsMiddle;
+        break;
+      case jsSenior:
+        questionSet = this.jsSenior;
+        break;
+    }
+  }
+}
+
 let cssJunior = [
   {
     question: `¿?`,
