@@ -18,12 +18,12 @@ class Game {
     // console.log("Canvas cleared!");
   };
 
-  nextQuestionSet = () =>{
+  nextQuestionSet = () => {
     fillQuestionsAnswers(gameQuestionSetObjArr, gameQuestionSetIndex);
     this.answers = new Answers();
     this.hands = new Hands();
     this.questionSet = new Questions();
-  }
+  };
 
   checkHandsAnswerCollision = (eachAnswerParam) => {
     if (
@@ -34,57 +34,80 @@ class Game {
     ) {
       // if collision detected:
       // 1. check if iteration counter is <= 4
-      if(gameQuestionSetIndex <= 4){
-
-      //    - check if the answer is correct or not
-      this.roundSolution = gameQuestionSetObjArr[gameQuestionSetIndex].solution;
-      this.answerToCheck = this.answers.answersArr.indexOf(eachAnswerParam);
-      if (this.roundSolution === this.answerToCheck) {
-        console.log("Yeeepeee!");
-        if(gameQuestionSetIndex < 4){
-          roundAnswersArray.push({roundIndex: roundIndex, roundSolution: this.roundSolution, answered: this.answerToCheck})
-          gameQuestionSetIndex++;
-          correctRoundAnswerCounter++;
-          this.nextQuestionSet();
-        } else if (gameQuestionSetIndex === 4) {
-          roundAnswersArray.push({roundIndex: roundIndex, roundSolution: this.roundSolution, answered: this.answerToCheck})
-          if(correctRoundAnswerCounter < 2){
-            console.log(`We are sorry, you had ${correctRoundAnswerCounter} correct answers! However, you can try again!`)
-            //correctRoundAnswerCounter++;
-            newQuestionSet = false;
-          } else {
+      if (gameQuestionSetIndex <= 4) {
+        //    - check if the answer is correct or not
+        this.roundSolution =
+          gameQuestionSetObjArr[gameQuestionSetIndex].solution;
+        this.answerToCheck = this.answers.answersArr.indexOf(eachAnswerParam);
+        if (this.roundSolution === this.answerToCheck) {
+          console.log("Yeeepeee!");
+          if (gameQuestionSetIndex < 4) {
+            roundAnswersArray.push({
+              roundIndex: roundIndex,
+              roundSolution: this.roundSolution,
+              answered: this.answerToCheck,
+            });
+            gameQuestionSetIndex++;
             correctRoundAnswerCounter++;
-            newQuestionSet = true;
-            console.log(`Congratulations! You had ${correctRoundAnswerCounter} correct answers! Continue!`)
-          }
-          isGameOver = true;
-          gameQuestionSetIndex = 0;
-          correctRoundAnswerCounter = 0;
-        }
-      } else {
-        console.log("Mhhhh");
-        if(gameQuestionSetIndex < 4){
-          roundAnswersArray.push({roundIndex: roundIndex, roundSolution: this.roundSolution, answered: this.answerToCheck})
-          gameQuestionSetIndex++;
-          this.nextQuestionSet();
-        } else if (gameQuestionSetIndex === 4) {
-          roundAnswersArray.push({roundIndex: roundIndex, roundSolution: this.roundSolution, answered: this.answerToCheck})
-          if(correctRoundAnswerCounter < 2){
-            console.log(`We are sorry, you had ${correctRoundAnswerCounter} correct answers! However, you can try again!`)
+            this.nextQuestionSet();
+          } else if (gameQuestionSetIndex === 4) {
+            roundAnswersArray.push({
+              roundIndex: roundIndex,
+              roundSolution: this.roundSolution,
+              answered: this.answerToCheck,
+            });
+            if (correctRoundAnswerCounter < 2) {
+              console.log(
+                `We are sorry, you had ${correctRoundAnswerCounter} correct answers! However, you can try again!`
+              );
+              //correctRoundAnswerCounter++;
+              newQuestionSet = false;
+            } else {
+              correctRoundAnswerCounter++;
+              newQuestionSet = true;
+              console.log(
+                `Congratulations! You had ${correctRoundAnswerCounter} correct answers! Continue!`
+              );
+            }
             isGameOver = true;
-          } else {
-            newQuestionSet = true;
-            console.log(`Congratulations! You had ${correctRoundAnswerCounter} correct answers! Continue!`)
+            gameQuestionSetIndex = 0;
+            correctRoundAnswerCounter = 0;
           }
-          newQuestionSet++
-          gameQuestionSetIndex = 0;
-          correctRoundAnswerCounter = 0;
+        } else {
+          console.log("Mhhhh");
+          if (gameQuestionSetIndex < 4) {
+            roundAnswersArray.push({
+              roundIndex: roundIndex,
+              roundSolution: this.roundSolution,
+              answered: this.answerToCheck,
+            });
+            gameQuestionSetIndex++;
+            this.nextQuestionSet();
+          } else if (gameQuestionSetIndex === 4) {
+            roundAnswersArray.push({
+              roundIndex: roundIndex,
+              roundSolution: this.roundSolution,
+              answered: this.answerToCheck,
+            });
+            if (correctRoundAnswerCounter < 2) {
+              console.log(
+                `We are sorry, you had ${correctRoundAnswerCounter} correct answers! However, you can try again!`
+              );
+              isGameOver = true;
+            } else {
+              newQuestionSet = true;
+              console.log(
+                `Congratulations! You had ${correctRoundAnswerCounter} correct answers! Continue!`
+              );
+            }
+            newQuestionSet++;
+            gameQuestionSetIndex = 0;
+            correctRoundAnswerCounter = 0;
+          }
         }
-      }
-      // console.log(`correctRoundAnswerCounter: ${correctRoundAnswerCounter}`);
-      // console.log(`roundAnswersArray: ${roundAnswersArray}`);
-      // console.log(`gameQuestionSetIndex: ${this.roundSolution}`);
-
+        // console.log(`correctRoundAnswerCounter: ${correctRoundAnswerCounter}`);
+        // console.log(`roundAnswersArray: ${roundAnswersArray}`);
+        // console.log(`gameQuestionSetIndex: ${this.roundSolution}`);
       }
       //    - if >3 AND <5 check correct answer counter
       //      -
@@ -161,6 +184,8 @@ class Game {
 
 // move hands with the keyboard direction keys
 document.addEventListener("keydown", (event) => {
-  const keyName = event.key;
-  newGame.hands.moveHands(keyName);
+  if (newGame) {
+    const keyName = event.key;
+    newGame.hands.moveHands(keyName);
+  }
 });

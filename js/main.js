@@ -65,30 +65,39 @@ const getQuestionSet = (department, level) => {
   // console.log(`getQuestionSetFilter(): "${searchQuestionsFilter}"`)
 
   let newQuestions = new Questions();
-  let gameQuestionSetObjArr = newQuestions.setQuestionSet(searchQuestionsFilter);
+  let gameQuestionSetObjArr = newQuestions.setQuestionSet(
+    searchQuestionsFilter
+  );
 
   // console.log(`getQuestionSet() gameQuestionSetObjArr: ${gameQuestionSetObjArr[0].question}`);
   return gameQuestionSetObjArr;
 };
 
 const fillQuestionsAnswers = (gameQuestionSetObjArr, gameQuestionSetIndex) => {
-  let questionDOM = document.querySelector("#question");
-  questionDOM.innerText = gameQuestionSetObjArr[gameQuestionSetIndex].question;
+  if (newGame) {
+    let questionDOM = document.querySelector("#question");
+    questionDOM.innerText =
+      gameQuestionSetObjArr[gameQuestionSetIndex].question;
 
-  let answer1DOM = document.querySelector("#answer1");
-  answer1DOM.innerText = gameQuestionSetObjArr[gameQuestionSetIndex].answer[0];
+    let answer1DOM = document.querySelector("#answer1");
+    answer1DOM.innerText =
+      gameQuestionSetObjArr[gameQuestionSetIndex].answer[0];
 
-  let answer2DOM = document.querySelector("#answer2");
-  answer2DOM.innerText = gameQuestionSetObjArr[gameQuestionSetIndex].answer[1];
+    let answer2DOM = document.querySelector("#answer2");
+    answer2DOM.innerText =
+      gameQuestionSetObjArr[gameQuestionSetIndex].answer[1];
 
-  let answer3DOM = document.querySelector("#answer3");
-  answer3DOM.innerText = gameQuestionSetObjArr[gameQuestionSetIndex].answer[2];
+    let answer3DOM = document.querySelector("#answer3");
+    answer3DOM.innerText =
+      gameQuestionSetObjArr[gameQuestionSetIndex].answer[2];
 
-  let answer4DOM = document.querySelector("#answer4");
-  answer4DOM.innerText = gameQuestionSetObjArr[gameQuestionSetIndex].answer[3];
+    let answer4DOM = document.querySelector("#answer4");
+    answer4DOM.innerText =
+      gameQuestionSetObjArr[gameQuestionSetIndex].answer[3];
 
-  correctRoundSolution = gameQuestionSetObjArr[gameQuestionSetIndex].solution;
-  return correctRoundSolution
+    correctRoundSolution = gameQuestionSetObjArr[gameQuestionSetIndex].solution;
+    return correctRoundSolution;
+  }
 };
 
 // function to start game
@@ -114,8 +123,6 @@ const startGame = () => {
 
 // function to swap the game screens by adding or removing the "hidden" class
 const swapScreen = (elementToHide, elementToShow) => {
-
-
   // if the elementToHide is screenSplashDOM, replace:
   // - class screen-canvas by screen-canvas-level-1
   if (elementToHide === screenSplashDOM) {
@@ -128,11 +135,14 @@ const swapScreen = (elementToHide, elementToShow) => {
     // set format
     elementToShow.classList.replace("screen-canvas", "screen-canvas-level-1");
   }
-  
+
   if (elementToHide === elementToShow && newQuestionSet === true) {
-      elementToShow.classList.replace("screen-canvas-level-1", "screen-canvas-level-2");
+    elementToShow.classList.replace(
+      "screen-canvas-level-1",
+      "screen-canvas-level-2"
+    );
   }
-  
+
   if (elementToHide === screenCanvasDOM) {
     // if elementToHide is screenCanvasDOM and candidate finished level 1
     // (has more than 60% correct answers)
