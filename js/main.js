@@ -21,6 +21,7 @@ canvas.height = 900;
 
 // game variables
 let newGame;
+let newQuestionSet = false;
 let isGameOver = false;
 
 // objects variables
@@ -36,10 +37,12 @@ let department = "";
 let level = "";
 let searchQuestionsFilter = "";
 let gameQuestionSetObjArr;
-let gameQuestionSetIndex = 1;
-let correctRoundAnswer = 0;
-let answersCounter = 0;
-//let answersArray = []; Bonus to implement
+let gameQuestionSetIndex = 0;
+let roundIndex = 0;
+let correctRoundSolution = 0;
+let correctRoundAnswerCounter = 0;
+let roundAnswersArray = [];
+let gameAnswersarray = [];
 
 // =============================================================================
 //    STATE MANAGEMENT FUNCTIONS
@@ -62,9 +65,7 @@ const getQuestionSet = (department, level) => {
   // console.log(`getQuestionSetFilter(): "${searchQuestionsFilter}"`)
 
   let newQuestions = new Questions();
-  let gameQuestionSetObjArr = newQuestions.setQuestionSet(
-    searchQuestionsFilter
-  );
+  let gameQuestionSetObjArr = newQuestions.setQuestionSet(searchQuestionsFilter);
 
   // console.log(`getQuestionSet() gameQuestionSetObjArr: ${gameQuestionSetObjArr[0].question}`);
   return gameQuestionSetObjArr;
@@ -86,8 +87,8 @@ const fillQuestionsAnswers = (gameQuestionSetObjArr, gameQuestionSetIndex) => {
   let answer4DOM = document.querySelector("#answer4");
   answer4DOM.innerText = gameQuestionSetObjArr[gameQuestionSetIndex].answer[3];
 
-  correctRoundAnswer = gameQuestionSetObjArr[gameQuestionSetIndex].solution;
-  return correctRoundAnswer
+  correctRoundSolution = gameQuestionSetObjArr[gameQuestionSetIndex].solution;
+  return correctRoundSolution
 };
 
 // function to start game
@@ -113,6 +114,8 @@ const startGame = () => {
 
 // function to swap the game screens by adding or removing the "hidden" class
 const swapScreen = (elementToHide, elementToShow) => {
+
+
   // if the elementToHide is screenSplashDOM, replace:
   // - class screen-canvas by screen-canvas-level-1
   if (elementToHide === screenSplashDOM) {
@@ -124,16 +127,13 @@ const swapScreen = (elementToHide, elementToShow) => {
 
     // set format
     elementToShow.classList.replace("screen-canvas", "screen-canvas-level-1");
-  } else if (elementToHide === elementToShow) {
-    if (isGameOver === false) {
-      elementToShow.classList.replace(
-        "screen-canvas-level-1",
-        "screen-canvas-level-2"
-      );
-    } else {
-      //elementToShow.classList.replace("screen-canvas-level-1", "screen-canvas-level-2");
-    }
-  } else if (elementToHide === screenCanvasDOM) {
+  }
+  
+  if (elementToHide === elementToShow && newQuestionSet === true) {
+      elementToShow.classList.replace("screen-canvas-level-1", "screen-canvas-level-2");
+  }
+  
+  if (elementToHide === screenCanvasDOM) {
     // if elementToHide is screenCanvasDOM and candidate finished level 1
     // (has more than 60% correct answers)
     // - switch screen-canvas-level-1 to screen-canvas-level-2

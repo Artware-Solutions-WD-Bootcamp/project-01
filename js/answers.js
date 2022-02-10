@@ -7,40 +7,34 @@ class Answers {
     // common properties
     this.height = 100;
     this.width = 100;
-    this.defaultSpeed = 2;
+    this.defaultSpeed = 1.5;
 
     // answer1 properties
     this.answer1X = 50;
-    this.answer1Y = 0;
+    this.answer1Y = -50;
     this.answer1 = new Image();
     this.answer1.src = "img/answer0.png";
     this.answer1MovementSpeed = this.defaultSpeed * Math.random();
 
     // answer2 properties
     this.answer2X = 175;
-    this.answer2Y = 0;
+    this.answer2Y = -50;
     this.answer2 = new Image();
     this.answer2.src = "img/answer1.png";
-    this.answer2DefaultMovementSpeed = 2;
-    this.answer2MovementSpeedMultiplier = Math.random();
     this.answer2MovementSpeed = this.defaultSpeed * Math.random();
 
     // answer3 properties
     this.answer3X = 300;
-    this.answer3Y = 0;
+    this.answer3Y = -50;
     this.answer3 = new Image();
     this.answer3.src = "img/answer2.png";
-    this.answer3DefaultMovementSpeed = 2;
-    this.answer3MovementSpeedMultiplier = Math.random();
     this.answer3MovementSpeed = this.defaultSpeed * Math.random();
 
     // answer4 properties
     this.answer4X = 425;
-    this.answer4Y = 0;
+    this.answer4Y = -50;
     this.answer4 = new Image();
     this.answer4.src = "img/answer3.png";
-    this.answer4DefaultMovementSpeed = 2;
-    this.answer4MovementSpeedMultiplier = Math.random();
     this.answer4MovementSpeed = this.defaultSpeed * Math.random();
 
     this.answersArr = [
