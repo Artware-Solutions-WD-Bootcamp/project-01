@@ -8,7 +8,7 @@ Una empresa de informática necesita contratar programadores de HTML, CSS o JS.
 El candidato tiene que responder correctamente a las preguntas para conseguir 
 el trabajo. El candidato deberá capturar la respuesta correcta de entre las 
 respuestas en movimiento utilizando las teclas de flecha. Ganará si pasa las 
-dos etapas y responde correctamente más del 50% de las respuestas. 
+dos etapas y responde correctamente más del 60% de las respuestas. 
 - Enemigos: El Jefe
 - Bonus: El sueldo
 

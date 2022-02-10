@@ -123,46 +123,31 @@ const startGame = () => {
 
 // function to swap the game screens by adding or removing the "hidden" class
 const swapScreen = (elementToHide, elementToShow) => {
-  // if the elementToHide is screenSplashDOM, replace:
-  // - class screen-canvas by screen-canvas-level-1
-  if (elementToHide === screenSplashDOM) {
-    // hide elementToHide
-    elementToHide.classList.add("hidden");
-
-    // display elementToShow
-    elementToShow.classList.remove("hidden");
-
-    // set format
-    elementToShow.classList.replace("screen-canvas", "screen-canvas-level-1");
-  }
-
-  if (elementToHide === elementToShow && newQuestionSet === true) {
+  if (elementToHide === elementToShow) {
+    // if both elements are the same, this means that we are in playing game phase
+    // so we will only change the class from screen-canvas-level-1 to screen-canvas-level-2
     elementToShow.classList.replace(
       "screen-canvas-level-1",
       "screen-canvas-level-2"
     );
+  } else {
+    // if elements are different, this means that we are not in playing game phase
+    // so we will hide the elementToHide and show elementToShow
+    elementToHide.classList.add("hidden");
+    elementToShow.classList.remove("hidden");
   }
 
-  if (elementToHide === screenCanvasDOM) {
-    // if elementToHide is screenCanvasDOM and candidate finished level 1
-    // (has more than 60% correct answers)
-    // - switch screen-canvas-level-1 to screen-canvas-level-2
-    if (elementToShow.classList.contains("screen-canvas-level-1")) {
-      elementToShow.classList.replace(
-        "screen-canvas-level-1",
-        "screen-canvas-level-2"
-      );
-    }
-
-    // - switch screen-canvas-level-1 to screen-gameover if candidate didn't passed
-    if (elementToShow.classList.contains("screen-canvas-level-1")) {
-      elementToShow.classList.replace(
-        "screen-canvas-level-1",
-        "screen-canvas-level-2"
-      );
+  if (elementToShow === screenGameOverDOM) {
+    if (correctRoundAnswerCounter < 2) {
+      btnRestartDOM.innerText = "Volver a intentar"
+      elementToShow.classList.replace("screen-gameover", "screen-gameover-lose");
+    } else {
+      btnRestartDOM.innerText = "Mejorar mi salario"
+      elementToShow.classList.replace("screen-gameover", "screen-gameover-win");
     }
   }
 };
+
 
 // =============================================================================
 //    ADD EVENT LISTENERS
@@ -202,5 +187,9 @@ btnLevelSeniorDOM.addEventListener("click", () => {
 });
 
 btnRestartDOM.addEventListener("click", () => {
+  isGameOver = false;
   swapScreen(screenGameOverDOM, screenSplashDOM);
+  roundIndex = 0;
+  correctRoundSolution = 0;
+  correctRoundAnswerCounter = 0;
 });

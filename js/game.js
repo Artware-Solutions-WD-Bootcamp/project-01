@@ -35,98 +35,70 @@ class Game {
       // if collision detected:
       // 1. check if iteration counter is <= 4
       if (gameQuestionSetIndex <= 4) {
-        //    - check if the answer is correct or not
-        this.roundSolution =
-          gameQuestionSetObjArr[gameQuestionSetIndex].solution;
+        this.roundSolution = gameQuestionSetObjArr[gameQuestionSetIndex].solution;
         this.answerToCheck = this.answers.answersArr.indexOf(eachAnswerParam);
-        if (this.roundSolution === this.answerToCheck) {
-          console.log("Yeeepeee!");
-          if (gameQuestionSetIndex < 4) {
-            roundAnswersArray.push({
-              roundIndex: roundIndex,
-              roundSolution: this.roundSolution,
-              answered: this.answerToCheck,
-            });
-            gameQuestionSetIndex++;
+        // on each question round except last (<5 index 4)
+        if (gameQuestionSetIndex < 4) {
+          // if answer is ok
+          if (this.roundSolution === this.answerToCheck) {
+            // push round info to array
+            roundAnswersArray.push({ roundIndex: roundIndex, roundSolution: this.roundSolution, answered: this.answerToCheck,});
+            // increment the correct answers counter
             correctRoundAnswerCounter++;
+            // increment the questions counter to show the next question set
+            gameQuestionSetIndex++
+            // obtain the new question set
             this.nextQuestionSet();
-          } else if (gameQuestionSetIndex === 4) {
-            roundAnswersArray.push({
-              roundIndex: roundIndex,
-              roundSolution: this.roundSolution,
-              answered: this.answerToCheck,
-            });
-            if (correctRoundAnswerCounter < 2) {
-              console.log(
-                `We are sorry, you had ${correctRoundAnswerCounter} correct answers! However, you can try again!`
-              );
-              //correctRoundAnswerCounter++;
-              newQuestionSet = false;
-            } else {
-              correctRoundAnswerCounter++;
-              newQuestionSet = true;
-              console.log(
-                `Congratulations! You had ${correctRoundAnswerCounter} correct answers! Continue!`
-              );
-            }
-            isGameOver = true;
-            gameQuestionSetIndex = 0;
-            correctRoundAnswerCounter = 0;
+
+            // if answer is not ok
+          } else {
+            // push round info to array
+            roundAnswersArray.push({ roundIndex: roundIndex, roundSolution: this.roundSolution, answered: this.answerToCheck,});
+            // increment the questions counter to show the next question set
+            gameQuestionSetIndex++
+            // obtain the new question set
+            this.nextQuestionSet();
           }
+
+        // on the last question we need to apply a different logic
+        // we will also need to check if the candidate met the minimum needed knowledge
+        // to know if he will pass to the next round or he will lose the interview
         } else {
-          console.log("Mhhhh");
-          if (gameQuestionSetIndex < 4) {
-            roundAnswersArray.push({
-              roundIndex: roundIndex,
-              roundSolution: this.roundSolution,
-              answered: this.answerToCheck,
-            });
-            gameQuestionSetIndex++;
-            this.nextQuestionSet();
-          } else if (gameQuestionSetIndex === 4) {
-            roundAnswersArray.push({
-              roundIndex: roundIndex,
-              roundSolution: this.roundSolution,
-              answered: this.answerToCheck,
-            });
-            if (correctRoundAnswerCounter < 2) {
-              console.log(
-                `We are sorry, you had ${correctRoundAnswerCounter} correct answers! However, you can try again!`
-              );
-              isGameOver = true;
-            } else {
-              newQuestionSet = true;
-              console.log(
-                `Congratulations! You had ${correctRoundAnswerCounter} correct answers! Continue!`
-              );
-            }
-            newQuestionSet++;
+          // if answer is ok
+          if (this.roundSolution === this.answerToCheck) {
+            // push round info to array
+            roundAnswersArray.push({ roundIndex: roundIndex, roundSolution: this.roundSolution, answered: this.answerToCheck,});
+            // increment the correct answers counter to show a feedback to the candidate
+            correctRoundAnswerCounter++;
+            // give feedback to candidate
+            alert(`Congratulations! You had ${correctRoundAnswerCounter} correct answers! You can continue!`);
+            // reset the question set index counter to obtain the new first question
             gameQuestionSetIndex = 0;
-            correctRoundAnswerCounter = 0;
+            console.log(gameQuestionSetIndex)
+
+            // increment the index round
+            roundIndex++;
+            console.log(roundIndex)
+            // obtain a new question set for the next round
+            newQuestionSet = true;
+            // obtain the new question set
+            this.nextQuestionSet();
+            // set the correctRoundAnswerCounter to 0 
+            correctRoundAnswerCounter=0;
+            // swap the screen to the new look
+            swapScreen(screenCanvasDOM, screenCanvasDOM);
+
+            // if answer is not ok
+          } else {
+            // push round info to array
+            roundAnswersArray.push({ roundIndex: roundIndex, roundSolution: this.roundSolution, answered: this.answerToCheck,});
+            // increment the questions counter to show the next question set
+            gameQuestionSetIndex++
+            // obtain the new question set
+            this.nextQuestionSet();
           }
         }
-        // console.log(`correctRoundAnswerCounter: ${correctRoundAnswerCounter}`);
-        // console.log(`roundAnswersArray: ${roundAnswersArray}`);
-        // console.log(`gameQuestionSetIndex: ${this.roundSolution}`);
       }
-      //    - if >3 AND <5 check correct answer counter
-      //      -
-      //
-      // 1. check correct answer counter
-      //    - if is <3
-      //    - if is <5 set the new question/answers set and restart the loop
-      //    - if is = to 5 AND the
-      // 2.
-
-      // end game
-      // 1. end the loop
-      //isGameOver = true;
-      // console.log("Ouch!");
-      // console.log(`game.js -> gameQuestionSetIndex: ${gameQuestionSetObjArr}`)
-      // console.log(`game.js -> gameQuestionSetIndex: ${gameQuestionSetIndex}`);
-
-      // 2. change screen
-      //swapScreen(elementToHide, elementToShow)
     }
   };
 
@@ -156,8 +128,10 @@ class Game {
       this.answers.answer4Y >= canvas.height - 100 ||
       isGameOver === true
     ) {
-      //isGameOver = true;
-      swapScreen(screenCanvasDOM, screenCanvasDOM);
+      // show gameover screen
+      isGameOver = true
+      // console.log(isGameOver)
+      swapScreen(screenCanvasDOM, screenGameOverDOM);
       //console.log(`main.js -> fillQuestionsAnswers() correctSolution: ${correctRoundSolution}`)
       //console.log(`this.answers.answersArr[3].y: ${this.answers.answersArr[3].y}`);
       //console.log(`game.js -> isGameOver: ${isGameOver}`);

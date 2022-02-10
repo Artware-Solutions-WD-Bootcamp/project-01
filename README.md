@@ -2,7 +2,7 @@
 [Versión española](LEAME.md)
 
 ## Descripción
-An IT company needs to hire programmers for HTML, CSS or JS. The candidate has to answer the questions correctly to get the job. The candidate shoud pick the correct answer from the moving answers using the arrowkeys. It will win if will pass the two stages and answer correctly more than 50% of the answers.
+An IT company needs to hire programmers for HTML, CSS or JS. The candidate has to answer the questions correctly to get the job. The candidate shoud pick the correct answer from the moving answers using the arrowkeys. It will win if will pass the two stages and answer correctly more than 60% of the answers.
 - Enemies: The CEO
 - Bonus: The salary
 
