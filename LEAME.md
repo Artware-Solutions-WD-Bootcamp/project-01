@@ -14,41 +14,43 @@ dos etapas y responde correctamente más del 60% de las respuestas.
 
 
 ## MVP (DOM - CANVAS)
-El juego tiene un jugador que se puede mover verticalmente u horizontalmente 
-mediante las teclas del cursor
+- Manipulación del DOM
+- Utilización del canvas
+- Loops
+- Recursión
+- Clases
+- Colisiones
+- Ganar/Perder
+- Despliegue
 
 
-## Backlog
-Backlog elements.
+## Bonus para implementar
+- Multilingüe
+- Efectos audio
+- Poner enlaces web para las respuestas correctas
+- Ajustar el tiempo de entrada de las respuestas en función de la longitud de la pregunta
+- Creación dinámica de respuestas
 
 
-## Data structure
-Classes and methods definition. Or functions.
+## Estructura de los datos
+Definición de los clases y métodos
 
 
-## States y States Transitions
-Definition of the different states and their transition (transition functions)
+## Estados y transiciones
+El juego tiene tres estados y dos subestados
 
 - splashScreen
 - gameScreen
+  - fase I
+  - fase II
 - gameoverScreen
-- winScreen
-
-
-## Task
-Task definition in order of priority
+  - ganar
+  - perder
 
 
 ## Additional Links
 
 
-### Trello
-[Link url](https://trello.com)
-
-
-### Slides
-[Link Slides.com](http://slides.com)
-
 ### Demo
-[Demo => ](http://github.com)
+[Demo => ](https://artware-solutions-wd-bootcamp.github.io/project-01/)
 
