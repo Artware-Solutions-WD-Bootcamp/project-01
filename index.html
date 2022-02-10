@@ -48,8 +48,9 @@
               las teclas de dirección izquierda y derecha.
             </li>
             <li>
-              Las respuestas se deberán capturar ANTES de que la primera respuesta
-              llegue a la parte inferior del canvas o será eliminado directamente.
+              Las respuestas se deberán capturar ANTES de que la primera
+              respuesta llegue a la parte inferior del canvas o será eliminado
+              directamente.
             </li>
             <li>
               Para capturar las respuestas se pueden tocar de cualquier manera,
@@ -106,7 +107,46 @@
 
       <!-- GAME OVER SCREEN-->
       <div class="screen screen-gameover hidden" id="screen-gameover">
-        <button class="btn" id="btn-restart"></button>
+        <div class="title">
+          <h1>¡Enhorabuena!</h1>
+          <span>&nbsp;</span>
+        </div>
+        <div class="interview-greeting brown left strong-translucent">
+          <p>
+            ¡Ha conseguido superar con éxito nuestra entrevista y ahora forma
+            parte de esta gran família!
+          </p>
+          <p>
+            Pronto, nuestro departamento de personal le contactará para
+            concertar una cita y formalizar su contratación.
+          </p>
+          <p>
+            El departamento de dirección le felicita por su logro y le deseamos
+            encuentre en nuestra empresa el lugra de trabajo que siempre estuvo
+            soñando.
+          </p>
+        </div>
+        <div class="rules brown right strong-translucent">
+          <h2>Resultados de la entrevista:</h2>
+          <ul>
+            <li>Aciertos ronda I:</li>
+            <li>Aciertos ronda II:</li>
+          </ul>
+          <ul>
+            <li>Tiempo medido ronda I:</li>
+            <li>Tiempo medido ronda II:</li>
+          </ul>
+          <ul>
+            <li>Salario: </li>
+          </ul>
+        </div>
+        <div class="return brown right strong-translucent">
+          <h2>
+            Si no está conforme puede volver a hacer la entrevista para
+            mejorarla
+          </h2>
+          <button class="btn" id="btn-restart"></button>
+        </div>
       </div>
     </div>
 
