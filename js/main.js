@@ -142,9 +142,15 @@ const swapScreen = (elementToHide, elementToShow) => {
     if (correctRoundAnswerCounter < 2) {
       btnRestartDOM.innerText = "Volver a intentar"
       elementToShow.classList.replace("screen-gameover", "screen-gameover-lose");
+      screenCanvasDOM.classList.remove("screen-canvas-level-1")
+      screenCanvasDOM.classList.remove("screen-canvas-level-2")
+      screenCanvasDOM.classList.add("screen-canvas-level-1")
     } else {
       btnRestartDOM.innerText = "Mejorar mi salario"
       elementToShow.classList.replace("screen-gameover", "screen-gameover-win");
+      screenCanvasDOM.classList.remove("screen-canvas-level-1")
+      screenCanvasDOM.classList.remove("screen-canvas-level-2")
+      screenCanvasDOM.classList.add("screen-canvas-level-1")
     }
   }
 };

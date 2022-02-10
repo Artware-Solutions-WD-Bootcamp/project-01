@@ -21,24 +21,29 @@ class Questions {
         solution: 0,
       },
       {
-        question: `¿?`,
-        answer: [``, ``, ``, ``],
-        solution: 0,
+        question: `¿Qué posición representa 20px en la siguiente sintaxis: #box-margin: 10px 5px 20px 25px?`,
+        answer: [`izquierda`, `derecha`, `arriba`, `abajo`],
+        solution: 3,
       },
       {
-        question: `¿?`,
-        answer: [``, ``, ``, ``],
-        solution: 0,
+        question: `¿Cómo se llama a un "id" HTML en CSS?`,
+        answer: [`.`, `!`, `<>`, `#`],
+        solution: 3,
       },
       {
-        question: `¿?`,
-        answer: [``, ``, ``, ``],
-        solution: 0,
+        question: `¿Modelo de caja (box-model): qué caja está justo después del elemento HTML?`,
+        answer: [`Borde
+        (border)`, `Margen
+        (margin)`, `Relleno
+        (padding)`, `Contenido
+        (content)`],
+        solution: 1,
       },
       {
-        question: `¿?`,
-        answer: [``, ``, ``, ``],
-        solution: 0,
+        question: `¿Cuáles de estos símbolos son selectores en CSS:?
+        <p> .class #id *`,
+        answer: [`El primero y el último`, `El segundo y el tercero`, `Todos`, `Ninguno`],
+        solution: 2,
       },
     ],[
       {
@@ -56,24 +61,29 @@ class Questions {
         solution: 0,
       },
       {
-        question: `¿?`,
-        answer: [``, ``, ``, ``],
-        solution: 0,
+        question: `¿Qué posición representa 20px en la siguiente sintaxis: #box-margin: 10px 5px 20px 25px?`,
+        answer: [`izquierda`, `derecha`, `arriba`, `abajo`],
+        solution: 3,
       },
       {
-        question: `¿?`,
-        answer: [``, ``, ``, ``],
-        solution: 0,
+        question: `¿Cómo se llama a un "id" HTML en CSS?`,
+        answer: [`.`, `!`, `<>`, `#`],
+        solution: 3,
       },
       {
-        question: `¿?`,
-        answer: [``, ``, ``, ``],
-        solution: 0,
+        question: `¿Modelo de caja (box-model): qué caja está justo después del elemento HTML?`,
+        answer: [`Borde
+        (border)`, `Margen
+        (margin)`, `Relleno
+        (padding)`, `Contenido
+        (content)`],
+        solution: 1,
       },
       {
-        question: `¿?`,
-        answer: [``, ``, ``, ``],
-        solution: 0,
+        question: `¿Cuáles de estos símbolos son selectores en CSS:?
+        <p> .class #id *`,
+        answer: [`El primero y el último`, `El segundo y el tercero`, `Todos`, `Ninguno`],
+        solution: 2,
       },
     ]
   ];
@@ -94,24 +104,29 @@ class Questions {
           solution: 0,
         },
         {
-          question: `¿?`,
-          answer: [``, ``, ``, ``],
-          solution: 0,
+          question: `¿Qué posición representa 20px en la siguiente sintaxis: #box-margin: 10px 5px 20px 25px?`,
+          answer: [`izquierda`, `derecha`, `arriba`, `abajo`],
+          solution: 3,
         },
         {
-          question: `¿?`,
-          answer: [``, ``, ``, ``],
-          solution: 0,
+          question: `¿Cómo se llama a un "id" HTML en CSS?`,
+          answer: [`.`, `!`, `<>`, `#`],
+          solution: 3,
         },
         {
-          question: `¿?`,
-          answer: [``, ``, ``, ``],
-          solution: 0,
+          question: `¿Modelo de caja (box-model): qué caja está justo después del elemento HTML?`,
+          answer: [`Borde
+          (border)`, `Margen
+          (margin)`, `Relleno
+          (padding)`, `Contenido
+          (content)`],
+          solution: 1,
         },
         {
-          question: `¿?`,
-          answer: [``, ``, ``, ``],
-          solution: 0,
+          question: `¿Cuáles de estos símbolos son selectores en CSS:?
+          <p> .class #id *`,
+          answer: [`El primero y el último`, `El segundo y el tercero`, `Todos`, `Ninguno`],
+          solution: 2,
         },
       ],[
         {
@@ -129,27 +144,32 @@ class Questions {
           solution: 0,
         },
         {
-          question: `¿?`,
-          answer: [``, ``, ``, ``],
-          solution: 0,
+          question: `¿Qué posición representa 20px en la siguiente sintaxis: #box-margin: 10px 5px 20px 25px?`,
+          answer: [`izquierda`, `derecha`, `arriba`, `abajo`],
+          solution: 3,
         },
         {
-          question: `¿?`,
-          answer: [``, ``, ``, ``],
-          solution: 0,
+          question: `¿Cómo se llama a un "id" HTML en CSS?`,
+          answer: [`.`, `!`, `<>`, `#`],
+          solution: 3,
         },
         {
-          question: `¿?`,
-          answer: [``, ``, ``, ``],
-          solution: 0,
+          question: `¿Modelo de caja (box-model): qué caja está justo después del elemento HTML?`,
+          answer: [`Borde
+          (border)`, `Margen
+          (margin)`, `Relleno
+          (padding)`, `Contenido
+          (content)`],
+          solution: 1,
         },
         {
-          question: `¿?`,
-          answer: [``, ``, ``, ``],
-          solution: 0,
+          question: `¿Cuáles de estos símbolos son selectores en CSS:?
+          <p> .class #id *`,
+          answer: [`El primero y el último`, `El segundo y el tercero`, `Todos`, `Ninguno`],
+          solution: 2,
         },
       ]
-      ];
+        ];
     this.cssSenior = [
       [
         {
@@ -167,24 +187,29 @@ class Questions {
           solution: 0,
         },
         {
-          question: `¿?`,
-          answer: [``, ``, ``, ``],
-          solution: 0,
+          question: `¿Qué posición representa 20px en la siguiente sintaxis: #box-margin: 10px 5px 20px 25px?`,
+          answer: [`izquierda`, `derecha`, `arriba`, `abajo`],
+          solution: 3,
         },
         {
-          question: `¿?`,
-          answer: [``, ``, ``, ``],
-          solution: 0,
+          question: `¿Cómo se llama a un "id" HTML en CSS?`,
+          answer: [`.`, `!`, `<>`, `#`],
+          solution: 3,
         },
         {
-          question: `¿?`,
-          answer: [``, ``, ``, ``],
-          solution: 0,
+          question: `¿Modelo de caja (box-model): qué caja está justo después del elemento HTML?`,
+          answer: [`Borde
+          (border)`, `Margen
+          (margin)`, `Relleno
+          (padding)`, `Contenido
+          (content)`],
+          solution: 1,
         },
         {
-          question: `¿?`,
-          answer: [``, ``, ``, ``],
-          solution: 0,
+          question: `¿Cuáles de estos símbolos son selectores en CSS:?
+          <p> .class #id *`,
+          answer: [`El primero y el último`, `El segundo y el tercero`, `Todos`, `Ninguno`],
+          solution: 2,
         },
       ],[
         {
@@ -202,27 +227,32 @@ class Questions {
           solution: 0,
         },
         {
-          question: `¿?`,
-          answer: [``, ``, ``, ``],
-          solution: 0,
+          question: `¿Qué posición representa 20px en la siguiente sintaxis: #box-margin: 10px 5px 20px 25px?`,
+          answer: [`izquierda`, `derecha`, `arriba`, `abajo`],
+          solution: 3,
         },
         {
-          question: `¿?`,
-          answer: [``, ``, ``, ``],
-          solution: 0,
+          question: `¿Cómo se llama a un "id" HTML en CSS?`,
+          answer: [`.`, `!`, `<>`, `#`],
+          solution: 3,
         },
         {
-          question: `¿?`,
-          answer: [``, ``, ``, ``],
-          solution: 0,
+          question: `¿Modelo de caja (box-model): qué caja está justo después del elemento HTML?`,
+          answer: [`Borde
+          (border)`, `Margen
+          (margin)`, `Relleno
+          (padding)`, `Contenido
+          (content)`],
+          solution: 1,
         },
         {
-          question: `¿?`,
-          answer: [``, ``, ``, ``],
-          solution: 0,
+          question: `¿Cuáles de estos símbolos son selectores en CSS:?
+          <p> .class #id *`,
+          answer: [`El primero y el último`, `El segundo y el tercero`, `Todos`, `Ninguno`],
+          solution: 2,
         },
       ]
-      ];
+        ];
 
     //html section
     this.htmlJunior = [
@@ -243,24 +273,24 @@ class Questions {
           solution: 1,
         },
         {
-          question: `¿?`,
-          answer: [``, ``, ``, ``],
+          question: `¿Todas las etiquetas HTML vienen en pares?`,
+          answer: [`No`, `Sí`, `Depende del entorno`, `Depende del idioma`],
           solution: 0,
         },
         {
-          question: `¿?`,
-          answer: [``, ``, ``, ``],
-          solution: 0,
+          question: `¿Cómo se inserta un símbolo de copyright en una página HTML?`,
+          answer: [`$copy`, `!copy`, `&copy`, `copy`],
+          solution: 2,
         },
         {
-          question: `¿?`,
-          answer: [``, ``, ``, ``],
-          solution: 0,
+          question: `¿Cómo se crean enlaces a secciones dentro de la misma página?`,
+          answer: [`<a href="#volver">volver</>`, `<a href="#volver">volver</a>`, `<a href="#volver">`, `<a name="#volver">volver</a>`],
+          solution: 1,
         },
         {
-          question: `¿?`,
-          answer: [``, ``, ``, ``],
-          solution: 0,
+          question: `¿Cómo se crea un texto multicolor en una página web?`,
+          answer: [`<font color="color">texto</font>`, `<font color="color">...</font> para cada carácter`, `Un texto multicolo en html se puede hacer únicamente usando CSS`, `No se pueden hacer textos multicolores en HTML`],
+          solution: 1,
         },
       ],
       [
@@ -280,24 +310,24 @@ class Questions {
           solution: 1,
         },
         {
-          question: `¿?`,
-          answer: [``, ``, ``, ``],
+          question: `¿Todas las etiquetas HTML vienen en pares?`,
+          answer: [`No`, `Sí`, `Depende del entorno`, `Depende del idioma`],
           solution: 0,
         },
         {
-          question: `¿?`,
-          answer: [``, ``, ``, ``],
-          solution: 0,
+          question: `¿Cómo se inserta un símbolo de copyright en una página HTML?`,
+          answer: [`$copy`, `!copy`, `&copy`, `copy`],
+          solution: 2,
         },
         {
-          question: `¿?`,
-          answer: [``, ``, ``, ``],
-          solution: 0,
+          question: `¿Cómo se crean enlaces a secciones dentro de la misma página?`,
+          answer: [`<a href="#volver">volver</>`, `<a href="#volver">volver</a>`, `<a href="#volver">`, `<a name="#volver">volver</a>`],
+          solution: 1,
         },
         {
-          question: `¿?`,
-          answer: [``, ``, ``, ``],
-          solution: 0,
+          question: `¿Cómo se crea un texto multicolor en una página web?`,
+          answer: [`<font color="color">texto</font>`, `<font color="color">...</font> para cada carácter`, `Un texto multicolo en html se puede hacer únicamente usando CSS`, `No se pueden hacer textos multicolores en HTML`],
+          solution: 1,
         },
       ],
     ];
@@ -307,36 +337,36 @@ class Questions {
           question: `¿Qué significa HTML?`,
           answer: [
             `Lenguaje marcado por el hipertipo
-          (Hyper type marked language)`,
+        (Hyper type marked language)`,
             `Lenguaje de marcado de hipertexto
-          (Hyper text markup language)`,
+        (Hyper text markup language)`,
             `Lenguaje de marcas de hipertransacciones
-          (Hypertransaction markup language)
-          `,
+        (Hypertransaction markup language)
+        `,
             `Ninguna de las anteriores
-          (None of the above)`,
+        (None of the above)`,
           ],
           solution: 1,
         },
         {
-          question: `¿?`,
-          answer: [``, ``, ``, ``],
+          question: `¿Todas las etiquetas HTML vienen en pares?`,
+          answer: [`No`, `Sí`, `Depende del entorno`, `Depende del idioma`],
           solution: 0,
         },
         {
-          question: `¿?`,
-          answer: [``, ``, ``, ``],
-          solution: 0,
+          question: `¿Cómo se inserta un símbolo de copyright en una página HTML?`,
+          answer: [`$copy`, `!copy`, `&copy`, `copy`],
+          solution: 2,
         },
         {
-          question: `¿?`,
-          answer: [``, ``, ``, ``],
-          solution: 0,
+          question: `¿Cómo se crean enlaces a secciones dentro de la misma página?`,
+          answer: [`<a href="#volver">volver</>`, `<a href="#volver">volver</a>`, `<a href="#volver">`, `<a name="#volver">volver</a>`],
+          solution: 1,
         },
         {
-          question: `¿?`,
-          answer: [``, ``, ``, ``],
-          solution: 0,
+          question: `¿Cómo se crea un texto multicolor en una página web?`,
+          answer: [`<font color="color">texto</font>`, `<font color="color">...</font> para cada carácter`, `Un texto multicolo en html se puede hacer únicamente usando CSS`, `No se pueden hacer textos multicolores en HTML`],
+          solution: 1,
         },
       ],
       [
@@ -344,36 +374,36 @@ class Questions {
           question: `¿Qué significa HTML?`,
           answer: [
             `Lenguaje marcado por el hipertipo
-          (Hyper type marked language)`,
+        (Hyper type marked language)`,
             `Lenguaje de marcado de hipertexto
-          (Hyper text markup language)`,
+        (Hyper text markup language)`,
             `Lenguaje de marcas de hipertransacciones
-          (Hypertransaction markup language)
-          `,
+        (Hypertransaction markup language)
+        `,
             `Ninguna de las anteriores
-          (None of the above)`,
+        (None of the above)`,
           ],
           solution: 1,
         },
         {
-          question: `¿?`,
-          answer: [``, ``, ``, ``],
+          question: `¿Todas las etiquetas HTML vienen en pares?`,
+          answer: [`No`, `Sí`, `Depende del entorno`, `Depende del idioma`],
           solution: 0,
         },
         {
-          question: `¿?`,
-          answer: [``, ``, ``, ``],
-          solution: 0,
+          question: `¿Cómo se inserta un símbolo de copyright en una página HTML?`,
+          answer: [`$copy`, `!copy`, `&copy`, `copy`],
+          solution: 2,
         },
         {
-          question: `¿?`,
-          answer: [``, ``, ``, ``],
-          solution: 0,
+          question: `¿Cómo se crean enlaces a secciones dentro de la misma página?`,
+          answer: [`<a href="#volver">volver</>`, `<a href="#volver">volver</a>`, `<a href="#volver">`, `<a name="#volver">volver</a>`],
+          solution: 1,
         },
         {
-          question: `¿?`,
-          answer: [``, ``, ``, ``],
-          solution: 0,
+          question: `¿Cómo se crea un texto multicolor en una página web?`,
+          answer: [`<font color="color">texto</font>`, `<font color="color">...</font> para cada carácter`, `Un texto multicolo en html se puede hacer únicamente usando CSS`, `No se pueden hacer textos multicolores en HTML`],
+          solution: 1,
         },
       ],
     ];
@@ -383,36 +413,36 @@ class Questions {
           question: `¿Qué significa HTML?`,
           answer: [
             `Lenguaje marcado por el hipertipo
-          (Hyper type marked language)`,
+        (Hyper type marked language)`,
             `Lenguaje de marcado de hipertexto
-          (Hyper text markup language)`,
+        (Hyper text markup language)`,
             `Lenguaje de marcas de hipertransacciones
-          (Hypertransaction markup language)
-          `,
+        (Hypertransaction markup language)
+        `,
             `Ninguna de las anteriores
-          (None of the above)`,
+        (None of the above)`,
           ],
           solution: 1,
         },
         {
-          question: `¿?`,
-          answer: [``, ``, ``, ``],
+          question: `¿Todas las etiquetas HTML vienen en pares?`,
+          answer: [`No`, `Sí`, `Depende del entorno`, `Depende del idioma`],
           solution: 0,
         },
         {
-          question: `¿?`,
-          answer: [``, ``, ``, ``],
-          solution: 0,
+          question: `¿Cómo se inserta un símbolo de copyright en una página HTML?`,
+          answer: [`$copy`, `!copy`, `&copy`, `copy`],
+          solution: 2,
         },
         {
-          question: `¿?`,
-          answer: [``, ``, ``, ``],
-          solution: 0,
+          question: `¿Cómo se crean enlaces a secciones dentro de la misma página?`,
+          answer: [`<a href="#volver">volver</>`, `<a href="#volver">volver</a>`, `<a href="#volver">`, `<a name="#volver">volver</a>`],
+          solution: 1,
         },
         {
-          question: `¿?`,
-          answer: [``, ``, ``, ``],
-          solution: 0,
+          question: `¿Cómo se crea un texto multicolor en una página web?`,
+          answer: [`<font color="color">texto</font>`, `<font color="color">...</font> para cada carácter`, `Un texto multicolo en html se puede hacer únicamente usando CSS`, `No se pueden hacer textos multicolores en HTML`],
+          solution: 1,
         },
       ],
       [
@@ -420,36 +450,36 @@ class Questions {
           question: `¿Qué significa HTML?`,
           answer: [
             `Lenguaje marcado por el hipertipo
-          (Hyper type marked language)`,
+        (Hyper type marked language)`,
             `Lenguaje de marcado de hipertexto
-          (Hyper text markup language)`,
+        (Hyper text markup language)`,
             `Lenguaje de marcas de hipertransacciones
-          (Hypertransaction markup language)
-          `,
+        (Hypertransaction markup language)
+        `,
             `Ninguna de las anteriores
-          (None of the above)`,
+        (None of the above)`,
           ],
           solution: 1,
         },
         {
-          question: `¿?`,
-          answer: [``, ``, ``, ``],
+          question: `¿Todas las etiquetas HTML vienen en pares?`,
+          answer: [`No`, `Sí`, `Depende del entorno`, `Depende del idioma`],
           solution: 0,
         },
         {
-          question: `¿?`,
-          answer: [``, ``, ``, ``],
-          solution: 0,
+          question: `¿Cómo se inserta un símbolo de copyright en una página HTML?`,
+          answer: [`$copy`, `!copy`, `&copy`, `copy`],
+          solution: 2,
         },
         {
-          question: `¿?`,
-          answer: [``, ``, ``, ``],
-          solution: 0,
+          question: `¿Cómo se crean enlaces a secciones dentro de la misma página?`,
+          answer: [`<a href="#volver">volver</>`, `<a href="#volver">volver</a>`, `<a href="#volver">`, `<a name="#volver">volver</a>`],
+          solution: 1,
         },
         {
-          question: `¿?`,
-          answer: [``, ``, ``, ``],
-          solution: 0,
+          question: `¿Cómo se crea un texto multicolor en una página web?`,
+          answer: [`<font color="color">texto</font>`, `<font color="color">...</font> para cada carácter`, `Un texto multicolo en html se puede hacer únicamente usando CSS`, `No se pueden hacer textos multicolores en HTML`],
+          solution: 1,
         },
       ],
     ];
@@ -517,26 +547,26 @@ class Questions {
       ],
       [
         {
-          question: `¿Qué es un booleano?`,
+          question: `¿Cuál es la estructura correcta de un bucle "for" (for loop)`,
           answer: [
-            `X/Y
-        (X/Y)`,
-            `Si/No
-        (Yes/No)`,
-            `Verdadero/Falso
-        (True/False)`,
-            `Número
-        (Number)`,
+            `for(condición; expresiónFinal; inicialización)`,
+            `for(expresión; condición; expresiónFinal)`,
+            `for(inicialización; condición; expresiónFinal)`,
+            `Ninguna de las anteriores`,
           ],
           solution: 2,
         },
         {
-          question: `¿Qué tipo de lenguaje de programación es JavaScript?`,
+          question: `¿Qué efecto tiene en JavaScript? la declaración "break" (pausa)`,
           answer: [
-            `Asincrono`,
-            `Código máquina`,
-            `Polimórfico`,
-            `Síncrono con comportamientos asíncronos`,
+            `Para la ejecución del código
+            (stops the code execution)`,
+            `Establece un punto de interrupción para depurar
+            (set a debug break-point)`,
+            `Devuelve una cadena
+            (returns a string)`,
+            `Ninguna de las anteriores
+            (none of these)`,
           ],
           solution: 3,
         },
@@ -551,27 +581,24 @@ class Questions {
           solution: 0,
         },
         {
-          question: `¿Cómo se definen correctamente las clases en JavaScript?`,
+          question: `¿Cuál es el ejemplo de Camel Case?`,
           answer: [
-            `class nombreClase()`,
-            `class nombreClase []`,
-            `class nombreClase {}`,
-            `ninguna de las anteriores`,
+            `EsteEjemplo`,
+            `esteEJEMPLO`,
+            `esteEjemplo`,
+            `este-ejemplo`,
           ],
           solution: 2,
         },
         {
-          question: `¿Qué tipos de datos pueden almacenar los arreglos (arrays) en JavaScript?`,
+          question: `¿Cuál de estos métodos no es un método JavaScript?`,
           answer: [
-            `Cadenas
-        (Strings)`,
-            `Objetos
-        (Objects)`,
-            `Arreglos
-          (Arrays)`,
-            `Todos los anteriores`,
+            `.map`,
+            `.get`,
+            `.filter`,
+            `.reduce`,
           ],
-          solution: 3,
+          solution: 1,
         },
       ],
     ];
