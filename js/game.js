@@ -69,24 +69,35 @@ class Game {
             // push round info to array
             roundAnswersArray.push({ roundIndex: roundIndex, roundSolution: this.roundSolution, answered: this.answerToCheck,});
             // increment the correct answers counter to show a feedback to the candidate
-            correctRoundAnswerCounter++;
-            // give feedback to candidate
-            alert(`Congratulations! You had ${correctRoundAnswerCounter} correct answers! You can continue!`);
-            // reset the question set index counter to obtain the new first question
             gameQuestionSetIndex = 0;
-            console.log(gameQuestionSetIndex)
-
+            console.log(`collision check gameQuestionSetIndex: ${gameQuestionSetIndex}`)
+            // set newQuestionSet to true
             // increment the index round
             roundIndex++;
-            console.log(roundIndex)
-            // obtain a new question set for the next round
-            newQuestionSet = true;
-            // obtain the new question set
-            this.nextQuestionSet();
-            // set the correctRoundAnswerCounter to 0 
-            correctRoundAnswerCounter=0;
-            // swap the screen to the new look
-            swapScreen(screenCanvasDOM, screenCanvasDOM);
+            console.log(`collision check roundIndex: ${roundIndex}`)
+
+            if(roundIndex<2){
+              // if game is on round 1
+              correctRoundAnswerCounter++;
+              // give feedback to candidate
+              alert(`Congratulations! You had ${correctRoundAnswerCounter} correct answers! You can continue!`);
+              // reset the question set index counter to obtain the new first question
+              newQuestionSet = true;
+              // obtain a new question set for the next round
+              getQuestionSet(department, level, roundIndex);
+              // obtain the new question set
+              this.nextQuestionSet();
+              // set the correctRoundAnswerCounter to 0 
+              correctRoundAnswerCounter=0;
+              // swap the screen to the new look
+              swapScreen(screenCanvasDOM, screenCanvasDOM);
+            } else {
+              // if game is on round 2
+              // finish the game loop execution
+              isGameOver = true
+              // swap the screen to end gameover screen
+              swapScreen(screenCanvasDOM, screenGameOverDOM);
+            }
 
             // if answer is not ok
           } else {

@@ -60,8 +60,9 @@ const setLevel = (levelParam) => {
   return level;
 };
 
-const getQuestionSet = (department, level) => {
+const getQuestionSet = (department, level, roundIndex) => {
   searchQuestionsFilter = department + level;
+  console.log(`getQuestionSet roundIndex ${roundIndex}`)
   // console.log(`getQuestionSetFilter(): "${searchQuestionsFilter}"`)
 
   let newQuestions = new Questions();
@@ -115,7 +116,7 @@ const startGame = () => {
   }
 
   // obtain the questions and answers objects array to populate game screen
-  getQuestionSet(department, level);
+  getQuestionSet(department, level, roundIndex);
   // console.log(getQuestionSet);
 
   fillQuestionsAnswers(gameQuestionSetObjArr, gameQuestionSetIndex);
