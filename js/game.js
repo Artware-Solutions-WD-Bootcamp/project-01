@@ -79,6 +79,9 @@ class Game {
             if(roundIndex<2){
               // if game is on round 1
               correctRoundAnswerCounter++;
+              // set first round correct answers
+              firstRoundCorrectAnswers = correctRoundAnswerCounter
+              //console.log(firstRoundCorrectAnswers)
               // give feedback to candidate
               alert(`Congratulations! You had ${correctRoundAnswerCounter} correct answers! You can continue!`);
               // reset the question set index counter to obtain the new first question
@@ -142,6 +145,13 @@ class Game {
       // show gameover screen
       isGameOver = true
       // console.log(isGameOver)
+
+      /*
+      if(){
+        screenGameOverDOM.classList.replace("screen-gameover-win", "screen-gameover-lose")
+      }
+      */
+
       swapScreen(screenCanvasDOM, screenGameOverDOM);
       //console.log(`main.js -> fillQuestionsAnswers() correctSolution: ${correctRoundSolution}`)
       //console.log(`this.answers.answersArr[3].y: ${this.answers.answersArr[3].y}`);

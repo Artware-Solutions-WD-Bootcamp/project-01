@@ -13,7 +13,7 @@ dos etapas y responde correctamente más del 60% de las respuestas.
 - Bonus: El sueldo
 
 
-## MVP (DOM - CANVAS)
+## MVP
 - Manipulación del DOM
 - Utilización del canvas
 - Loops
@@ -32,11 +32,11 @@ dos etapas y responde correctamente más del 60% de las respuestas.
 - Creación dinámica de respuestas
 
 
-## Estructura de los datos
+## Estructura
 Definición de los clases y métodos
 
 
-## Estados y transiciones
+## Estados
 El juego tiene tres estados y dos subestados
 
 - splashScreen

@@ -1,7 +1,19 @@
 # The Circle Job Interview
 [Versión española](LEAME.md)
 
-## Descripción
+## Table of Content 
+
+  - [Table of Content](#table-of-content)
+  - [Description](#description)
+  - [MVP](#mvp)
+  - [Backlog](#backlog)
+  - [Data structure](#data-structure)
+  - [States](#states)
+  - [Demo](#demo)
+
+
+
+## Description
 An IT company needs to hire programmers for HTML, CSS or JS.
 The candidate has to answer the questions correctly to get the job.
 The candidate shoud pick the correct answer from the moving answers using the arrowkeys.
@@ -10,7 +22,7 @@ It will win ony if will pass both stages and answer correctly more than 60% of e
 - Bonus: The salary
 
 
-## MVP (DOM - CANVAS)
+## MVP
 - DOM manipulation
 - Use of canvas
 - Loops
@@ -45,12 +57,7 @@ The game has three states and two sub-states
   - lose
 
 
-## Task
-Task definition in order of priority
-
-
 ## Additional Links
-
 
 ### Demo
 [Demo => ](https://artware-solutions-wd-bootcamp.github.io/project-01/)

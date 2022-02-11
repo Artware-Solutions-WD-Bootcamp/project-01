@@ -41,8 +41,10 @@ let gameQuestionSetIndex = 0;
 let roundIndex = 0;
 let correctRoundSolution = 0;
 let correctRoundAnswerCounter = 0;
+let firstRoundCorrectAnswers = 0;
+let secondRoundCorrectAnswers = 0;
 let roundAnswersArray = [];
-let gameAnswersarray = [];
+let gameAnswersArray = [];
 
 // =============================================================================
 //    STATE MANAGEMENT FUNCTIONS
