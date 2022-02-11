@@ -10,9 +10,6 @@ class Hands {
     this.height = 100;
     this.img = new Image();
     this.img.src = "./img/hands.png";
-    //this.gravityNormalSpeed = 1;
-    //this.gravitySpeedMultiplier = 10;
-    //this.gravitySpeed = this.gravityNormalSpeed * this.gravitySpeedMultiplier;
   }
 
   // ===========================================================================
@@ -29,31 +26,19 @@ class Hands {
     switch (keyName) {
       case "ArrowUp":
         this.y = this.y - 20;
-        // console.log(`This y: ${this.y}`);
-        // console.log(`pulsado la tecla ${keyName}`);
         break;
 
       case "ArrowDown":
         this.y = this.y + 20;
-        // console.log(`This y: ${this.y}`);
-        // console.log(`Ha pulsado la tecla ${keyName}`);
         break;
 
       case "ArrowLeft":
         this.x = this.x - 20;
-        // console.log(`This x: ${this.x}`);
-        // console.log(`Ha pulsado la tecla ${keyName}`);
         break;
 
       case "ArrowRight":
         this.x = this.x + 20;
-        // console.log(`This x: ${this.x}`);
-        // console.log(`Ha pulsado la tecla ${keyName}`);
         break;
     }
   };
-
-  // ===========================================================================
-  //    CLASS Game ADD EVENT LISTENERS
-  // ===========================================================================
 }

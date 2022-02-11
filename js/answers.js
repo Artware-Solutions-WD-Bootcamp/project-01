@@ -88,8 +88,4 @@ class Answers {
     this.answer3Y = this.answer3Y + this.answer3MovementSpeed;
     this.answer4Y = this.answer4Y + this.answer4MovementSpeed;
   };
-
-  // ===========================================================================
-  //    CLASS Answers ADD EVENT LISTENERS
-  // ===========================================================================
 }

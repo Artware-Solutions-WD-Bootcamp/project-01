@@ -24,9 +24,6 @@ let newGame;
 let newQuestionSet = false;
 let isGameOver = false;
 
-// objects variables
-let answerSrcParam = 0;
-
 // screens variables
 let screenCanvasDOM = document.querySelector("#screen-canvas");
 let screenGameOverDOM = document.querySelector("#screen-gameover");
@@ -62,20 +59,19 @@ const setLevel = (levelParam) => {
   return level;
 };
 
+// function to get the question/answers set
 const getQuestionSet = (department, level, roundIndex) => {
   searchQuestionsFilter = department + level;
-  console.log(`getQuestionSet roundIndex ${roundIndex}`)
-  // console.log(`getQuestionSetFilter(): "${searchQuestionsFilter}"`)
 
   let newQuestions = new Questions();
   let gameQuestionSetObjArr = newQuestions.setQuestionSet(
     searchQuestionsFilter
   );
 
-  // console.log(`getQuestionSet() gameQuestionSetObjArr: ${gameQuestionSetObjArr[0].question}`);
   return gameQuestionSetObjArr;
 };
 
+// function to fill the question/answer section
 const fillQuestionsAnswers = (gameQuestionSetObjArr, gameQuestionSetIndex) => {
   if (newGame) {
     let questionDOM = document.querySelector("#question");
@@ -105,22 +101,21 @@ const fillQuestionsAnswers = (gameQuestionSetObjArr, gameQuestionSetIndex) => {
 
 // function to start game
 const startGame = () => {
-  // verify if the candidate selected the
+  // verify if the candidate selected the department first
   if (department === "js" || department === "html" || department === "css") {
     swapScreen(screenSplashDOM, screenCanvasDOM);
-    // console.log(`startGame() selected department and level are: ${department + level}`);
 
     // start new game
     newGame = new Game();
     newGame.gameLoop();
   } else {
-    alert("To apply for a job, you need to decide a department first!");
+    alert("¡Para solicitar un puesto de trabajo, primero tiene que decidir el departamento!");
   }
 
   // obtain the questions and answers objects array to populate game screen
   getQuestionSet(department, level, roundIndex);
-  // console.log(getQuestionSet);
 
+  // fill the questions and answers
   fillQuestionsAnswers(gameQuestionSetObjArr, gameQuestionSetIndex);
 };
 
@@ -140,6 +135,7 @@ const swapScreen = (elementToHide, elementToShow) => {
     elementToShow.classList.remove("hidden");
   }
 
+  // if the element is the gameover screen, set the elements according to result state
   if (elementToShow === screenGameOverDOM) {
     if (correctRoundAnswerCounter < 2) {
       btnRestartDOM.innerText = "Volver a intentar"
@@ -162,39 +158,40 @@ const swapScreen = (elementToHide, elementToShow) => {
 //    ADD EVENT LISTENERS
 // =============================================================================
 
+// set JS department
 btnDepartmentJsDOM.addEventListener("click", () => {
   setDepartment("JS");
-  // console.log(`setDepartment() selected department: "${department}"`)
 });
 
+// set HTML department
 btnDepartmentHtmlDOM.addEventListener("click", () => {
   setDepartment("HTML");
-  // console.log(`setDepartment() selected department: "${department}"`)
 });
 
+// set CSS department
 btnDepartmentCssDOM.addEventListener("click", () => {
   setDepartment("CSS");
-  // console.log(`setDepartment() selected department: "${department}"`)
 });
 
+// set Junior level
 btnLevelJuniorDOM.addEventListener("click", () => {
   setLevel("JUNIOR");
-  // console.log(`setLevel() selected level is: "${level}"`)
   startGame();
 });
 
+// set Middle level
 btnLevelMiddleDOM.addEventListener("click", () => {
-  setLevel("middle");
-  // console.log(`setLevel() selected level is: "${level}"`)
+  setLevel("MIDDLE");
   startGame();
 });
 
+// set Senior level
 btnLevelSeniorDOM.addEventListener("click", () => {
-  setLevel("seNIor");
-  // console.log(`setLevel() selected level is: "${level}"`)
+  setLevel("SENIOR");
   startGame();
 });
 
+// restart game button
 btnRestartDOM.addEventListener("click", () => {
   isGameOver = false;
   swapScreen(screenGameOverDOM, screenSplashDOM);

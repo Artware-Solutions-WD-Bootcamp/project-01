@@ -850,7 +850,6 @@ class Questions {
 
   // questionSet properties
   setQuestionSet = (questionSetParam) => {
-    console.log(`setQuestionSet roundIndex: ${roundIndex}`);
     switch (questionSetParam) {
       case "cssJunior":
         gameQuestionSetObjArr = this.cssJunior[roundIndex];
@@ -880,15 +879,10 @@ class Questions {
         gameQuestionSetObjArr = this.jsSenior[roundIndex];
         break;
       default:
-        console.log("¡Nada que declarar!");
+        alert("Something went wrong... Nothing to do!");
         break;
     }
 
-    // console.log(`class questionSet return: ${gameQuestionSetObjArr}`)
     return gameQuestionSetObjArr;
   };
-
-  // ===========================================================================
-  //    CLASS Game ADD EVENT LISTENERS
-  // ===========================================================================
 }
