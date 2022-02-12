@@ -852,37 +852,37 @@ class Question {
   setQuestionSet = (questionSetParam) => {
     switch (questionSetParam) {
       case "cssJunior":
-        gameQuestionSetObjArr = this.cssJunior[roundIndex];
+        roundQuestionSetObjArr = this.cssJunior[roundIndex];
         break;
       case "cssMiddle":
-        gameQuestionSetObjArr = this.cssMiddle[roundIndex];
+        roundQuestionSetObjArr = this.cssMiddle[roundIndex];
         break;
       case "cssSenior":
-        gameQuestionSetObjArr = this.cssSenior[roundIndex];
+        roundQuestionSetObjArr = this.cssSenior[roundIndex];
         break;
       case "htmlJunior":
-        gameQuestionSetObjArr = this.htmlJunior[roundIndex];
+        roundQuestionSetObjArr = this.htmlJunior[roundIndex];
         break;
       case "htmlMiddle":
-        gameQuestionSetObjArr = this.htmlMiddle[roundIndex];
+        roundQuestionSetObjArr = this.htmlMiddle[roundIndex];
         break;
       case "htmlSenior":
-        gameQuestionSetObjArr = this.htmlSenior[roundIndex];
+        roundQuestionSetObjArr = this.htmlSenior[roundIndex];
         break;
       case "jsJunior":
-        gameQuestionSetObjArr = this.jsJunior[roundIndex];
+        roundQuestionSetObjArr = this.jsJunior[roundIndex];
         break;
       case "jsMiddle":
-        gameQuestionSetObjArr = this.jsMiddle[roundIndex];
+        roundQuestionSetObjArr = this.jsMiddle[roundIndex];
         break;
       case "jsSenior":
-        gameQuestionSetObjArr = this.jsSenior[roundIndex];
+        roundQuestionSetObjArr = this.jsSenior[roundIndex];
         break;
       default:
         alert("Something went wrong... Nothing to do!");
         break;
     }
 
-    return gameQuestionSetObjArr;
+    return roundQuestionSetObjArr;
   };
 }

@@ -17,13 +17,26 @@ class Game {
     canvas.width = canvas.width;
   };
 
+  // function to build next question set
   nextQuestionSet = () => {
-    fillQuestionsAnswers(gameQuestionSetObjArr, gameQuestionSetIndex);
+    fillQuestionsAnswers(roundQuestionSetObjArr, roundQuestionSetIndex);
     this.answers = new Answer();
     this.hands = new Hands();
     this.questionSet = new Question();
   };
 
+  updateRoundInfoExceptLastRoundOnLevel = () => {
+    // push round info to array
+    roundAnswersArray.push({roundIndex: roundIndex, roundSolution: this.roundSolution, answered: this.answerToCheck});
+    // increment the questions counter to show the next question set
+    roundQuestionSetIndex++;
+    // obtain the new question set
+    this.nextQuestionSet();
+  }
+
+  // core function: checks if:
+    // answers are correct or not
+    // 
   checkHandsAnswerCollision = (eachAnswerParam) => {
     if (
       this.hands.x < eachAnswerParam.x + eachAnswerParam.width &&
@@ -33,12 +46,12 @@ class Game {
     ) {
       // if collision detected:
       // 1. check if iteration counter is <= 4
-      if (gameQuestionSetIndex <= 4) {
+      if (roundQuestionSetIndex <= 4) {
         this.roundSolution =
-          gameQuestionSetObjArr[gameQuestionSetIndex].solution;
+          roundQuestionSetObjArr[roundQuestionSetIndex].solution;
         this.answerToCheck = this.answers.answersArr.indexOf(eachAnswerParam);
         // on each question round except last (<5 index 4)
-        if (gameQuestionSetIndex < 4) {
+        if (roundQuestionSetIndex < 4) {
           // if answer is ok
           if (this.roundSolution === this.answerToCheck) {
             // push round info to array
@@ -50,7 +63,7 @@ class Game {
             // increment the correct answers counter
             correctRoundAnswerCounter++;
             // increment the questions counter to show the next question set
-            gameQuestionSetIndex++;
+            roundQuestionSetIndex++;
             // obtain the new question set
             this.nextQuestionSet();
 
@@ -63,7 +76,7 @@ class Game {
               answered: this.answerToCheck,
             });
             // increment the questions counter to show the next question set
-            gameQuestionSetIndex++;
+            roundQuestionSetIndex++;
             // obtain the new question set
             this.nextQuestionSet();
           }
@@ -81,7 +94,7 @@ class Game {
               answered: this.answerToCheck,
             });
             // increment the correct answers counter to show a feedback to the candidate
-            gameQuestionSetIndex = 0;
+            roundQuestionSetIndex = 0;
             // set newQuestionSet to true
             // increment the index round
             roundIndex++;
@@ -100,19 +113,19 @@ class Game {
               // reset the question set index counter to obtain the new first question
               newQuestionSet = true;
               // obtain a new question set for the next round
-              getQuestionSet(department, level, roundIndex);
+              getQuestionSet(department, jobLevel, roundIndex);
               // obtain the new question set
               this.nextQuestionSet();
               // set the correctRoundAnswerCounter to 0
               correctRoundAnswerCounter = 0;
               // swap the screen to the new look
-              swapScreen(screenCanvasDOM, screenCanvasDOM);
+              swapScreen(screenGameDOM, screenGameDOM);
             } else {
               // if game is on round 2
               // finish the game loop execution
               isGameOver = true;
               // swap the screen to end gameover screen
-              swapScreen(screenCanvasDOM, screenGameOverDOM);
+              swapScreen(screenGameDOM, screenGameOverDOM);
             }
 
             // if answer is not ok
@@ -124,7 +137,7 @@ class Game {
               answered: this.answerToCheck,
             });
             // increment the questions counter to show the next question set
-            gameQuestionSetIndex++;
+            roundQuestionSetIndex++;
             // obtain the new question set
             this.nextQuestionSet();
           }
@@ -163,7 +176,7 @@ class Game {
       isGameOver = true;
 
       // show gameover screen
-      swapScreen(screenCanvasDOM, screenGameOverDOM);
+      swapScreen(screenGameDOM, screenGameOverDOM);
     } else {
       this.answers.answersArr[0].y += this.answers.answer1MovementSpeed;
       this.answers.answersArr[1].y += this.answers.answer2MovementSpeed;
