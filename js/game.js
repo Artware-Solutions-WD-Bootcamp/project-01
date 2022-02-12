@@ -3,7 +3,7 @@ class Game {
   //    CLASS Game PROPERTIES
   // =========================================================================
   constructor() {
-    this.answers = new Answers();
+    this.answers = new Answer();
     this.hands = new Hands();
     this.questionSet = new Questions();
   }
@@ -19,7 +19,7 @@ class Game {
 
   nextQuestionSet = () => {
     fillQuestionsAnswers(gameQuestionSetObjArr, gameQuestionSetIndex);
-    this.answers = new Answers();
+    this.answers = new Answer();
     this.hands = new Hands();
     this.questionSet = new Questions();
   };
@@ -153,10 +153,10 @@ class Game {
     // means that the time to answer has ended and the candidate
     // should improve his skills
     if (
-      this.answers.answer1Y >= canvas.height - 100 ||
-      this.answers.answer2Y >= canvas.height - 100 ||
-      this.answers.answer3Y >= canvas.height - 100 ||
-      this.answers.answer4Y >= canvas.height - 100 ||
+      this.answers.answersArr[0].y >= canvas.height - 100 ||
+      this.answers.answersArr[1].y >= canvas.height - 100 ||
+      this.answers.answersArr[2].y >= canvas.height - 100 ||
+      this.answers.answersArr[3].y >= canvas.height - 100 ||
       isGameOver === true
     ) {
       // end the game
@@ -165,15 +165,10 @@ class Game {
       // show gameover screen
       swapScreen(screenCanvasDOM, screenGameOverDOM);
     } else {
-      this.answers.answersArr[0].y =
-        this.answers.answer1Y + this.answers.answer1MovementSpeed;
-      this.answers.answersArr[1].y =
-        this.answers.answer2Y + this.answers.answer2MovementSpeed;
-      this.answers.answersArr[2].y =
-        this.answers.answer3Y + this.answers.answer3MovementSpeed;
-      this.answers.answersArr[3].y =
-        this.answers.answer4Y + this.answers.answer4MovementSpeed;
-
+      this.answers.answersArr[0].y += this.answers.answer1MovementSpeed;
+      this.answers.answersArr[1].y += this.answers.answer2MovementSpeed;
+      this.answers.answersArr[2].y += this.answers.answer3MovementSpeed;
+      this.answers.answersArr[3].y += this.answers.answer4MovementSpeed;
       requestAnimationFrame(this.gameLoop);
     }
   };
