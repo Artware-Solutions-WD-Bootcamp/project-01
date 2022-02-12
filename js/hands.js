@@ -21,6 +21,7 @@ class Hands {
     ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
   };
 
+
   // move the hands
   moveHands = (keyName) => {
     switch (keyName) {

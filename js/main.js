@@ -3,8 +3,8 @@
 // =============================================================================
 
 // buttons
-let btnDepartmentHtmlDOM = document.querySelector("#btn-html");
 let btnDepartmentCssDOM = document.querySelector("#btn-css");
+let btnDepartmentHtmlDOM = document.querySelector("#btn-html");
 let btnDepartmentJsDOM = document.querySelector("#btn-js");
 let btnLevelJuniorDOM = document.querySelector("#btn-junior");
 let btnLevelMiddleDOM = document.querySelector("#btn-middle");
@@ -20,9 +20,9 @@ canvas.width = 600;
 canvas.height = 900;
 
 // game variables
+let isGameOver = false;
 let newGame;
 let newQuestionSet = false;
-let isGameOver = false;
 
 // screens variables
 let screenCanvasDOM = document.querySelector("#screen-canvas");
@@ -30,18 +30,18 @@ let screenGameOverDOM = document.querySelector("#screen-gameover");
 let screenSplashDOM = document.querySelector("#screen-splash");
 
 // department, level, questions and answers variables
-let department = "";
-let level = "";
-let searchQuestionsFilter = "";
-let gameQuestionSetObjArr;
-let gameQuestionSetIndex = 0;
-let roundIndex = 0;
 let correctRoundSolution = 0;
 let correctRoundAnswerCounter = 0;
-let firstRoundCorrectAnswers = 0;
-let secondRoundCorrectAnswers = 0;
-let roundAnswersArray = [];
+let department = "";
 let gameAnswersArray = [];
+let gameQuestionSetObjArr;
+let gameQuestionSetIndex = 0;
+let firstRoundCorrectAnswers = 0;
+let level = "";
+let roundIndex = 0;
+let roundAnswersArray = [];
+let searchQuestionsFilter = "";
+let secondRoundCorrectAnswers = 0;
 
 // =============================================================================
 //    STATE MANAGEMENT FUNCTIONS
@@ -60,10 +60,10 @@ const setLevel = (levelParam) => {
 };
 
 // function to get the question/answers set
-const getQuestionSet = (department, level, roundIndex) => {
+const getQuestionSet = (department, level) => {
   searchQuestionsFilter = department + level;
 
-  let newQuestions = new Questions();
+  let newQuestions = new Question();
   let gameQuestionSetObjArr = newQuestions.setQuestionSet(
     searchQuestionsFilter
   );
@@ -109,11 +109,13 @@ const startGame = () => {
     newGame = new Game();
     newGame.gameLoop();
   } else {
-    alert("¡Para solicitar un puesto de trabajo, primero tiene que decidir el departamento!");
+    alert(
+      "¡Para solicitar un puesto de trabajo, primero tiene que decidir el departamento!"
+    );
   }
 
   // obtain the questions and answers objects array to populate game screen
-  getQuestionSet(department, level, roundIndex);
+  getQuestionSet(department, level);
 
   // fill the questions and answers
   fillQuestionsAnswers(gameQuestionSetObjArr, gameQuestionSetIndex);
@@ -138,21 +140,32 @@ const swapScreen = (elementToHide, elementToShow) => {
   // if the element is the gameover screen, set the elements according to result state
   if (elementToShow === screenGameOverDOM) {
     if (correctRoundAnswerCounter < 2) {
-      btnRestartDOM.innerText = "Volver a intentar"
-      elementToShow.classList.replace("screen-gameover", "screen-gameover-lose");
-      screenCanvasDOM.classList.remove("screen-canvas-level-1")
-      screenCanvasDOM.classList.remove("screen-canvas-level-2")
-      screenCanvasDOM.classList.add("screen-canvas-level-1")
+      btnRestartDOM.innerText = "Volver a intentar";
+      elementToShow.classList.replace(
+        "screen-gameover",
+        "screen-gameover-lose"
+      );
+      screenCanvasDOM.classList.remove("screen-canvas-level-1");
+      screenCanvasDOM.classList.remove("screen-canvas-level-2");
+      screenCanvasDOM.classList.add("screen-canvas-level-1");
     } else {
-      btnRestartDOM.innerText = "Mejorar mi salario"
+      btnRestartDOM.innerText = "Mejorar mi salario";
       elementToShow.classList.replace("screen-gameover", "screen-gameover-win");
-      screenCanvasDOM.classList.remove("screen-canvas-level-1")
-      screenCanvasDOM.classList.remove("screen-canvas-level-2")
-      screenCanvasDOM.classList.add("screen-canvas-level-1")
+      screenCanvasDOM.classList.remove("screen-canvas-level-1");
+      screenCanvasDOM.classList.remove("screen-canvas-level-2");
+      screenCanvasDOM.classList.add("screen-canvas-level-1");
     }
   }
 };
 
+// function to restart game
+const restartGame = () => {
+  isGameOver = false;
+  swapScreen(screenGameOverDOM, screenSplashDOM);
+  roundIndex = 0;
+  correctRoundSolution = 0;
+  correctRoundAnswerCounter = 0;
+};
 
 // =============================================================================
 //    ADD EVENT LISTENERS
@@ -193,9 +206,5 @@ btnLevelSeniorDOM.addEventListener("click", () => {
 
 // restart game button
 btnRestartDOM.addEventListener("click", () => {
-  isGameOver = false;
-  swapScreen(screenGameOverDOM, screenSplashDOM);
-  roundIndex = 0;
-  correctRoundSolution = 0;
-  correctRoundAnswerCounter = 0;
+  restartGame();
 });

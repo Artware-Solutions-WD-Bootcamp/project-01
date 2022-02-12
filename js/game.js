@@ -5,7 +5,7 @@ class Game {
   constructor() {
     this.answers = new Answer();
     this.hands = new Hands();
-    this.questionSet = new Questions();
+    this.questionSet = new Question();
   }
 
   // ===========================================================================
@@ -21,7 +21,7 @@ class Game {
     fillQuestionsAnswers(gameQuestionSetObjArr, gameQuestionSetIndex);
     this.answers = new Answer();
     this.hands = new Hands();
-    this.questionSet = new Questions();
+    this.questionSet = new Question();
   };
 
   checkHandsAnswerCollision = (eachAnswerParam) => {

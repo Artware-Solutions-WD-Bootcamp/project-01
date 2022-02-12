@@ -1,6 +1,6 @@
-class Questions {
+class Question {
   // =========================================================================
-  //    CLASS Questions PROPERTIES
+  //    CLASS Question PROPERTIES
   // =========================================================================
   constructor() {
     // css section
@@ -845,7 +845,7 @@ class Questions {
   }
 
   // ===========================================================================
-  //    CLASS Questions METHODS
+  //    CLASS Question METHODS
   // ===========================================================================
 
   // questionSet properties
